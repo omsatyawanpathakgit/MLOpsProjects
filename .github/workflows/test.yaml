@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:          # optional: lets you run manually
+  workflow_dispatch:
 
 jobs:
   test:
@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install jupyter           # <-- needed to run .ipynb files
+          pip install -r "Swiggy MLOps Project/requirements.txt"
+          pip install jupyter
 
       - name: Run prediction test (notebook)
         run: |
