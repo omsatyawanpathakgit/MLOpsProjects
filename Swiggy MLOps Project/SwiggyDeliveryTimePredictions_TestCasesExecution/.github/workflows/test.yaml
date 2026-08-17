@@ -25,4 +25,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run prediction test
-        run: python RunningTestCases_onDeliveryTimePrediction.ipynb   # Replace with your actual script filename
+        run: python RunningTestCases_onDeliveryTimePrediction.ipynb
