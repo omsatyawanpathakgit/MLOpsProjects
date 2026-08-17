@@ -28,4 +28,5 @@ jobs:
 
       - name: Run prediction test (notebook)
         run: |
-          jupyter nbconvert --to notebook --execute "Swiggy MLOps Project/RunningTestCases_onDeliveryTimePrediction.ipynb" --output output.ipynb
+          cd "Swiggy MLOps Project"
+          jupyter execute RunningTestCases_onDeliveryTimePrediction.ipynb
