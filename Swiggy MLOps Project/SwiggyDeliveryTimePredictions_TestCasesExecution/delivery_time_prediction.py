@@ -4,12 +4,11 @@
 import joblib
 import pandas as pd
 import logging
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
-#Ignore all incoming warnings (if any):
 import warnings
+
+# Ignore all incoming warnings (if any):
 warnings.filterwarnings("ignore")
+
 
 def configure_logging():
     logging.basicConfig(
@@ -18,23 +17,9 @@ def configure_logging():
     )
 
 
-def get_chrome_options():
-    options = Options()
-
-    options.add_argument("--headless=new")
-
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-
-    return options
-
-
-
 def load_model(model_path):
     model = joblib.load(model_path)
-
     logging.info("Model loaded successfully.")
-
     return model
 
 
@@ -48,54 +33,28 @@ def prepare_input_data():
         "Address": ["Vastrapur"],
         "Total ratings": [220]
     })
-
     return new_data
 
-    
+
 def predict_delivery_time(model, new_data):
     prediction = model.predict(new_data)
-
     predicted_time = round(prediction[0])
-
     return predicted_time
 
 
 def display_prediction(predicted_time):
-    print(
-        "Predicted Delivery Time:",
-        predicted_time,
-        "minutes"
-    )
-
-    logging.info(
-        "Delivery time predicted = %s minutes",
-        predicted_time
-    )
+    print("Predicted Delivery Time:", predicted_time, "minutes")
+    logging.info("Delivery time predicted = %s minutes", predicted_time)
 
 
 def main():
-
-    # Configure logging
     configure_logging()
-
     try:
-        # Load model
-        model = load_model(
-            "Swiggy_FoodDeliveryTimePrediction_Model.pkl"
-        )
-
-        # Prepare input
+        # Load model (assumes the .pkl file is in the same directory)
+        model = load_model("Swiggy_FoodDeliveryTimePrediction_Model.pkl")
         new_data = prepare_input_data()
-
-        # Predict
-        predicted_time = predict_delivery_time(
-            model,
-            new_data
-        )
-
-        # Display result
+        predicted_time = predict_delivery_time(model, new_data)
         display_prediction(predicted_time)
-
     finally:
         logging.info("Testing completes.")
 
