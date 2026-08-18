@@ -29,4 +29,4 @@ jobs:
       - name: Run prediction test (notebook)
         run: |
           cd "Swiggy MLOps Project/SwiggyDeliveryTimePredictions_TestCasesExecution"
-          jupyter execute RunningTestCases_onDeliveryTimePrediction.ipynb
+          jupyter execute RunningTestCases_onDeliveryTimePrediction.ipynb --kernel python3
