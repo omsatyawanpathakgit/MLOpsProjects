@@ -1,6 +1,4 @@
 joblib
 pandas
 scikit-learn
-jupyter
-ipykernel
-selenium
+xgboost
