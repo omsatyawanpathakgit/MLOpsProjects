@@ -33,7 +33,7 @@ jobs:
           cd "Swiggy MLOps Project/SwiggyDeliveryTimePredictions_TestCasesExecution"
           ls -la *.pkl
 
-      - name: Run prediction test
+      - name: Run delivery timeprediction test
         run: |
           cd "Swiggy MLOps Project/SwiggyDeliveryTimePredictions_TestCasesExecution"
           python delivery_time_prediction.py
